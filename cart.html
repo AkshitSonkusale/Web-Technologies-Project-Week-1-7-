@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bookstore - Cart</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .nav-center { justify-content: center; }
+    .cart-item { 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+    }
+  </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-light">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">📚 BookZilla</a>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+          <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li>
+          <li class="nav-item"><a class="nav-link active" href="catalogue.html">Catalogue</a></li>
+          <li class="nav-item"><a class="nav-link" href="cart.html">Cart </a></li>
+          <li class="nav-item"><a class="nav-link active" href="profile.html">Profile</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- Cart Content -->
+  <div class="container mt-5">
+    <h2 class="text-center mb-4">Your Shopping Cart</h2>
+    <ul class="list-group" id="cart-list"></ul>
+    <div class="mt-4 text-end">
+      <h4>Total: $<span id="cart-total">0</span></h4>
+      <button class="btn btn-danger" id="clear-cart">Clear Cart</button>
+      <button class="btn btn-success" id="proceed">Proceed</button>
+    </div>
+  </div>
+
+  <script>
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const cartList = document.getElementById("cart-list");
+    const cartTotal = document.getElementById("cart-total");
+
+    function renderCart() {
+      cartList.innerHTML = "";
+      let total = 0;
+
+      if (cart.length === 0) {
+        cartList.innerHTML = "<li class='list-group-item text-center'>Your cart is empty.</li>";
+      } else {
+        cart.forEach((item, index) => {
+          total += parseFloat(item.price);
+
+          const li = document.createElement("li");
+          li.className = "list-group-item cart-item";
+
+          li.innerHTML = `
+            <span>${item.title} - $${item.price}</span>
+            <button class="btn btn-sm btn-outline-danger remove-item" data-index="${index}">Remove</button>
+          `;
+
+          cartList.appendChild(li);
+        });
+      }
+
+      cartTotal.textContent = total.toFixed(2);
+
+      // Re-bind remove buttons
+      document.querySelectorAll(".remove-item").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const i = btn.getAttribute("data-index");
+          cart.splice(i, 1);
+          localStorage.setItem("cart", JSON.stringify(cart));
+          renderCart();
+        });
+      });
+    }
+
+    document.getElementById("clear-cart").addEventListener("click", () => {
+      localStorage.removeItem("cart");
+      cart = [];
+      renderCart();
+    });
+
+    document.getElementById("proceed").addEventListener("click", () => {
+      if (cart.length === 0) {
+        alert("Your cart is empty. Add some books before proceeding!");
+      } else {
+        window.location.href = "checkout.html"; // optional page
+      }
+    });
+
+    renderCart();
+  </script><br><br>
+    <footer class="text-center py-3 bg-secondary text-light">
+    <p>&copy; 2025 BookZilla-The online bookstore . Week 1-7 Project . 23EG110D03 .</p>
+  </footer>
+
+</body>
+</html>
