@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BookZilla - Catalogue</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .nav-center { justify-content: center; }
+    .card { transition: transform 0.2s ease-in-out; }
+    .card:hover { transform: translateY(-6px); box-shadow: 0 6px 18px rgba(0,0,0,0.1); }
+    .card-img-top { height: 200px; object-fit: cover; }
+  </style>
+   <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-light">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">📚 BookZilla</a>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+          <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li>
+          <li class="nav-item"><a class="nav-link active" href="catalogue.html">Catalogue</a></li>
+          <li class="nav-item"><a class="nav-link" href="cart.html">Cart </a></li>
+          <li class="nav-item"><a class="nav-link active" href="profile.html">Profile</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Catalogue -->
+  <div class="container mt-5">
+    <h2 class="text-center mb-4">Book Catalogue</h2>
+    <div class="row g-4">
+      <!-- Java -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQVy-e1kG8UsygRmHjoxScusINAu2aErCgnHN4BAQaeVtKG4icm" class="card-img-top" alt="Java">
+          <div class="card-body">
+            <h5 class="card-title">Java Programming</h5>
+            <p class="card-text">A comprehensive guide to Java covering OOP, data structures, and advanced topics.</p>
+            <button class="btn btn-success w-100 add-to-cart" data-title="Java Programming" data-price="40">Add to Cart - $40</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Python -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSAF16AlWtdfjy0Vu1bGKMhqSOnBHypoGz7Oni4AjPCgFs1jG9IspHgtXBhMIV3MZWwoxQ1prjoU_OIO2gepln_m4iEs0XYQWWD-6QDtjF6MGonAAKkhKlm" class="card-img-top" alt="Python">
+          <div class="card-body">
+            <h5 class="card-title">Python for Everybody</h5>
+            <p class="card-text">An easy-to-follow book covering Python basics, data analysis, and web development essentials.</p>
+            <button class="btn btn-success w-100 add-to-cart" data-title="Python for Everybody" data-price="35">Add to Cart - $35</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- C++ -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRnDDEXgtbSdcURNybG7e4wZ9nngJugSGoYvjvhsmnswk7eijn2debp55AKnegdW7tHcsk0uJ1T9CocymRxG7vlNFq6MOxYoG2IJZ9Sd5c" class="card-img-top" alt="C++">
+          <div class="card-body">
+            <h5 class="card-title">Mastering C++</h5>
+            <p class="card-text">Dive deep into C++ concepts including pointers, memory management, and OOP.</p>
+            <button class="btn btn-success w-100 add-to-cart" data-title="Mastering C++" data-price="45">Add to Cart - $45</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- JavaScript -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSPKSDAn8vwGMXwEZIRjm6LDGM8l2ZWk870xkxA30xdXvqsjcvOxDJvmJSkgEJoiUK72Q3LMEu_L72BLnQzKip_iX3LNiVxVdJIKczfqlZU-oKMErhAWMZ-yg" class="card-img-top" alt="JavaScript">
+          <div class="card-body">
+            <h5 class="card-title">JavaScript Essentials</h5>
+            <p class="card-text">Learn modern JavaScript, from basics to advanced concepts like ES6 and async programming.</p>
+            <button class="btn btn-success w-100 add-to-cart" data-title="JavaScript Essentials" data-price="30">Add to Cart - $30</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- DSA -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRGuHEJL-wu4hYVzv_JsQGipa-9o2aLua-VHeg-GuDh5vnAo3VvXExClfYDNUxHpig62bbiyc2sSopUZbkv43Fq-8zRV9I0R5qz5khFO3CSxuxxP_ojKxwZ" class="card-img-top" alt="DSA">
+          <div class="card-body">
+            <h5 class="card-title">Data Structures & Algorithms</h5>
+            <p class="card-text">A problem-solving oriented book covering arrays, trees, graphs, sorting, and more.</p>
+            <button class="btn btn-success w-100 add-to-cart" data-title="Data Structures & Algorithms" data-price="50">Add to Cart - $50</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Web Development -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTkGimjWtiXr6LAtebTlqNqOKrD9bqb_X5FDwKJ-4GKFuN1XVvHRrCMYPa9KWITGdTIBf--rq8btOlafs1Qi_EyVK2qKPUae79Y2jx5UEEF19sWdnycenyOSQ" class="card-img-top" alt="Webdev">
+          <div class="card-body">
+            <h5 class="card-title">Web Development</h5>
+            <p class="card-text">Learn HTML, CSS, JavaScript, and backend frameworks to become a complete web developer.</p>
+            <button class="btn btn-success w-100 add-to-cart" data-title="Web Development" data-price="40">Add to Cart - $40</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script>
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    document.querySelectorAll(".add-to-cart").forEach(button => {
+      button.addEventListener("click", () => {
+        const title = button.getAttribute("data-title");
+        const price = button.getAttribute("data-price");
+
+        cart.push({ title, price });
+        localStorage.setItem("cart", JSON.stringify(cart));
+
+        alert(title + " added to your cart!");
+      });
+    });
+  </script><br><br>
+  <footer class="text-center py-3 bg-secondary text-light">
+    <p>&copy; 2025 BookZilla-The online bookstore . Week 1-7 Project . 23EG110D03 .</p>
+  </footer>
+
+</body>
+</html>
