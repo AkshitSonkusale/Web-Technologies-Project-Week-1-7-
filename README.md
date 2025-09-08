@@ -1,1 +1,1 @@
-# Web-Technologies-Project-Week-1-7-
+# Web-Technologies Project (Week 1-7)
